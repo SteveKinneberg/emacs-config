@@ -1,11 +1,7 @@
-# Compiled
-*.elc
+# Ignore everything
+/*
 
-# Packaging
-.cask
-
-# Backup files
-*~
-
-# Undo-tree save-files
-*.~undo-tree
+# Except
+!/init.el
+!/custom
+!/.gitignore
