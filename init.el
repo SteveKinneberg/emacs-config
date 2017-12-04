@@ -25,7 +25,7 @@
 	(require pn file))))
 
 ;; Need the highlight-current-line package before setting custom variables
-(require-install-package 'highlight-current-line)
+;;(require-install-package 'highlight-current-line)
 
 ;; Emacs controlled variables
 (custom-set-variables
@@ -57,9 +57,6 @@
  '(focus-follow-mouse t)
  '(font-lock-global-modes (quote (not speedbar-mode)))
  '(global-linum-mode t)
- '(highlight-current-line-globally t nil (highlight-current-line))
- '(highlight-current-line-ignore-regexp
-   "Faces\\|Colors\\| \\*Mini\\|\\*Info\\|\\*Man\\|\\*Customize")
  '(home-end-enable t)
  '(hscroll-margin 10)
  '(hscroll-step 1)
@@ -100,7 +97,6 @@
  '(font-lock-string-face ((t (:foreground "#007000"))))
  '(font-lock-type-face ((t (:foreground "#087070"))))
  '(fringe ((t (:background "#fffbf0"))))
- '(highlight-current-line-face ((t (:background "#ffff70"))))
  '(isearch ((t (:background "#604000" :foreground "#f0f060"))))
  '(mode-line ((t (:background "#dbd0a2" :foreground "#000000" :box (:line-width -1 :style released-button)))))
  '(mode-line-highlight ((t (:box (:line-width 3 :color "#dbd0a2" :style released-button)))))
@@ -132,4 +128,4 @@
 (global-subword-mode 1)
 
 ;; Start server mode to allow emacsclient to connect
-(server-start)
+;(server-start)
