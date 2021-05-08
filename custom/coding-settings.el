@@ -19,6 +19,11 @@
 
 
 ;; Fixup some c++-mode settings for C++11 and C++11
+(require-install-package 'cc-mode)
+(custom-set-variables '(c-noise-macro-names '("[[nodiscard]]"
+                                              "constexpr"
+                                              "noexcept")))
+
 (require-install-package 'modern-cpp-font-lock)
 (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
 

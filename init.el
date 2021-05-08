@@ -5,7 +5,7 @@
 ;; start package.el with Emacs
 (require 'package)
 ;; add MELPA to repository list
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 ;; initialize package.el
 (package-initialize)
 
@@ -25,7 +25,7 @@
 	(require pn file))))
 
 ;; Need the highlight-current-line package before setting custom variables
-(require-install-package 'highlight-current-line)
+;;(require-install-package 'highlight-current-line)
 
 ;; Emacs controlled variables
 (custom-set-variables
@@ -35,9 +35,10 @@
  ;; If there is more than one, they won't work right.
  '(c-default-style
    (quote
-    ((java-mode . "java")
+    ((java-mode . "java-m87")
      (awk-mode . "awk")
-     (other . "kberg"))))
+     (other . "m87"))))
+ '(c-noise-macro-names (quote ("[[nodiscard]]" "constexpr" "noexcept")))
  '(c-offsets-alist nil)
  '(c-report-syntactic-errors t)
  '(column-number-mode t)
@@ -45,21 +46,18 @@
     (quote
      ((left-fringe)
       (right-fringe)
-      (width . 101)
-      (height . 61))))
+      (width . 111)
+      (height . 56))))
  '(develock-max-column-plist
    (quote
     (emacs-lisp-mode 100 lisp-interaction-mode w change-log-mode t texinfo-mode t c-mode 120 c++-mode 120 java-mode 120 caml-mode 120 tuareg-mode 120 coq-mode 120 latex-mode 120 jde-mode 120 html-mode 120 html-helper-mode 120 cperl-mode 120 perl-mode 120 mail-mode t message-mode t cmail-mail-mode t tcl-mode 120 ruby-mode 120)))
  '(diff-switches "-u")
- '(fill-column 80)
+ '(fill-column 100)
  '(flycheck-clang-language-standard "c++17")
  '(flycheck-gcc-language-standard "c++17")
  '(focus-follow-mouse t)
  '(font-lock-global-modes (quote (not speedbar-mode)))
  '(global-linum-mode t)
- '(highlight-current-line-globally t nil (highlight-current-line))
- '(highlight-current-line-ignore-regexp
-   "Faces\\|Colors\\| \\*Mini\\|\\*Info\\|\\*Man\\|\\*Customize")
  '(home-end-enable t)
  '(hscroll-margin 10)
  '(hscroll-step 1)
@@ -69,8 +67,17 @@
  '(mouse-avoidance-mode (quote animate) nil (avoid))
  '(package-selected-packages
    (quote
-    (flycheck graphviz-dot-mode async modern-cpp-font-lock yasnippet volatile-highlights org-download org-bullets markdown-mode highlight-numbers highlight-current-line google-c-style flyspell-lazy flycheck-tip flycheck-pos-tip clean-aindent-mode auto-complete aggressive-indent)))
+    (company-irony-c-headers company-irony company copy-as-format dired-filetype-face dired-git dired-git-info find-file-in-repository flycheck-color-mode-line flycheck-cstyle flycheck-indicator flycheck-inline flyspell-correct flyspell-correct-popup flyspell-popup git-commit gitconfig-mode gitignore-mode gitlab gitlab-ci-mode gitlab-ci-mode-flycheck magit magit-annex magit-diff-flycheck magit-filenotify magit-find-file magit-gerrit magit-gh-pulls auto-complete-c-headers call-graph cpp-auto-include flycheck-irony flymake-cppcheck flymake-google-cpplint irony irony-eldoc ac-clang auto-complete-clang auto-complete-clang-async clang-format clang-format+ cpp-capf cpputils-cmake flycheck-clang-analyzer flycheck-clang-tidy flycheck-clangcheck cmake-font-lock cmake-ide cmake-mode cmake-project flycheck graphviz-dot-mode async modern-cpp-font-lock yasnippet volatile-highlights org-download org-bullets markdown-mode highlight-numbers google-c-style flyspell-lazy flycheck-tip flycheck-pos-tip clean-aindent-mode auto-complete)))
  '(require-final-newline t)
+ '(safe-local-variable-values
+   (quote
+    ((eval set
+           (make-local-variable
+            (quote my-project-path))
+           (locate-dominating-file ".dir-locals.el"))
+     (flycheck-gcc-include-path
+      (concat my-project-path "/../include")
+      (concat my-project-path "/include")))))
  '(scroll-conservatively 10000)
  '(scroll-preserve-screen-position t)
  '(show-paren-mode t)
@@ -89,10 +96,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#fffbf0" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 79 :width normal :foundry "simp" :family "Hack"))))
+ '(default ((t (:background "#fffbf0" :foreground "#000000" :height 75 :family "Hack"))))
  '(develock-long-line-1 ((t (:foreground "#b01010"))))
  '(develock-long-line-2 ((t (:background "#ffffb0" :foreground "#b01010"))))
- '(fixed-pitch ((t (:family "Hack"))))
  '(font-lock-comment-face ((t (:foreground "#4080ff"))))
  '(font-lock-constant-face ((t (:foreground "#b000b0"))))
  '(font-lock-function-name-face ((t (:foreground "#1020a8"))))
@@ -100,7 +106,6 @@
  '(font-lock-string-face ((t (:foreground "#007000"))))
  '(font-lock-type-face ((t (:foreground "#087070"))))
  '(fringe ((t (:background "#fffbf0"))))
- '(highlight-current-line-face ((t (:background "#ffff70"))))
  '(isearch ((t (:background "#604000" :foreground "#f0f060"))))
  '(mode-line ((t (:background "#dbd0a2" :foreground "#000000" :box (:line-width -1 :style released-button)))))
  '(mode-line-highlight ((t (:box (:line-width 3 :color "#dbd0a2" :style released-button)))))
@@ -117,11 +122,14 @@
 (require 'my-styles)
 (require 'my-modes)
 (require 'edit-settings)
-(require 'my-autocomplete)
+;; (require 'my-autocomplete)
 (require 'coding-settings)
 
-;;(require 'my-company)
+(require 'my-company)
+(require 'my-irony)
 ;;(require 'my-cedet)
+
+(setq cmake-tab-width 4)
 
 ;; Interactively Do Things
 (setq ido-enable-flex-matching t)
@@ -130,6 +138,9 @@
 
 ;; Subword mode everywhere
 (global-subword-mode 1)
+
+;; Start Magit
+(magit)
 
 ;; Start server mode to allow emacsclient to connect
 (server-start)

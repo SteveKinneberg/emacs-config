@@ -36,9 +36,9 @@
 ;;(require'aggressive-fill-paragraph) (afp-setup-recommended-hooks)
 
 ;; Aggressive indent
-(require-install-package 'aggressive-indent)
-(global-aggressive-indent-mode 1)
-(add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+;; (require-install-package 'aggressive-indent)
+;; (global-aggressive-indent-mode 1)
+;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
 ;; Prefer UTF-8
 (set-terminal-coding-system 'utf-8)
