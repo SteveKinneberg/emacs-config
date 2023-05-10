@@ -34,24 +34,24 @@ widths to 0."
 (add-hook 'text-mode-hook 'my-word-wrap-mode)
 
 ;; Setup markdown mode
-(require-install-package 'markdown-mode)
+;; (require-install-package 'markdown-mode)
 
 ;; Setup the all powerful org-mode
-(require-install-package 'org)
-(set-variable 'org-support-shift-select t)
-(set-variable 'org-startup-with-inline-images t)
-(set-variable 'org-startup-indented t)
-(require-install-package 'org-bullets)
-(add-hook 'org-mode-hook 'my-word-wrap-mode)
-(add-hook 'org-mode-hook (lambda () (progn
-                                      (org-bullets-mode 1)
-                                      (auto-fill-mode -1))))
-(require-install-package 'async) ;; may need to install version 1.6 manually
-(require-install-package 'org-download)
+;; (require-install-package 'org)
+;; (set-variable 'org-support-shift-select t)
+;; (set-variable 'org-startup-with-inline-images t)
+;; (set-variable 'org-startup-indented t)
+;; (require-install-package 'org-bullets)
+;; (add-hook 'org-mode-hook 'my-word-wrap-mode)
+;; (add-hook 'org-mode-hook (lambda () (progn
+;;                                       (org-bullets-mode 1)
+;;                                       (auto-fill-mode -1))))
+;; (require-install-package 'async) ;; may need to install version 1.6 manually
+;; (require-install-package 'org-download)
 
 
 ;; Graphviz Dot mode
-(require-install-package 'graphviz-dot-mode)
+;; (require-install-package 'graphviz-dot-mode)
 
 
 ;; Override and teach emacs preferred modes for certain file types.

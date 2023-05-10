@@ -77,6 +77,9 @@ toward the top of the window while the point moves down in the document."
 (global-set-key [(meta up)] 'backward-paragraph)
 (global-set-key [(meta down)] 'forward-paragraph)
 
+;; (global-set-key [home] 'home-end-home)
+;; (global-set-key [end] 'home-end-end)
+
 (eval-after-load 'org
   '(progn (define-key org-mode-map [(control c)(control .)] 'org-time-stamp-inactive)
           (define-key org-mode-map [(control c)(control .)] 'org-time-stamp-inactive)))

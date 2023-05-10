@@ -8,10 +8,10 @@
 (subword-mode 1)
 
 ;; Enable Flyspell spell checker
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-(require-install-package 'flyspell-lazy)
+;; (add-hook 'text-mode-hook 'flyspell-mode)
+;; (add-hook 'org-mode-hook 'flyspell-mode)
+;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;; (require-install-package 'flyspell-lazy)
 
 
 ;; Highlight the current line
@@ -21,12 +21,12 @@
 
 
 ;; Volatile Highlights - shows what yank/undo changed
-(require-install-package 'volatile-highlights)
-(volatile-highlights-mode t)
+;; (require-install-package 'volatile-highlights)
+;; (volatile-highlights-mode t)
 
 ;; Clean auto-indent
-(require-install-package 'clean-aindent-mode)
-(add-hook 'prog-mode-hook 'clean-aindent-mode)
+;; (require-install-package 'clean-aindent-mode)
+;; (add-hook 'prog-mode-hook 'clean-aindent-mode)
 
 ;; Undo tree  -- too confusing
 ;;(require 'undo-tree)

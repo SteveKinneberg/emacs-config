@@ -2,23 +2,19 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Pull in the Google C++ coding style
-(require-install-package 'google-c-style)
-(c-add-style "Google" google-c-style)
 
 (c-add-style "kberg"
-             '("Google"
-               (c-basic-offset . 4)
+             '("stroustrup"
                (c-offsets-alist
-                (case-label . 0)
-                (label . [0])
-                (inher-intro . +)
-                (member-init-intro . +)
+                (innamespace . 0)
                 (inextern-lang . 0)
-                (statement-case-open . 0)
-                )
-               ))
+                (label . [0])
+                (access-label . /)
+                )))
 
+
+;; The Linux kernel project requires the use of tabs for indention.  Why doesn't the built-in linux
+;; style default to using tabs???
 (c-add-style "klinux"
              '("linux"
                (indent-tabs-mode .t)))
