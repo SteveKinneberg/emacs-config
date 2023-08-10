@@ -7,6 +7,7 @@
              '("stroustrup"
                (c-offsets-alist
                 (innamespace . 0)
+                (inline-open . 0)
                 (inextern-lang . 0)
                 (label . [0])
                 (access-label . /)

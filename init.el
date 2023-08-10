@@ -100,6 +100,7 @@
            (auto-revert-mode nil "autorevert")
            (modern-c++-font-lock-mode nil "modern-cpp-font-lock")
            (flycheck-mode nil "flycheck")
+           (flyspell-mode nil "flyspell")
            (subword-mode nil "subword")))
 (use-package treemacs)
 (use-package which-key
@@ -117,7 +118,6 @@
          (objc-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
-(use-package lsp-mode)
 (use-package lsp-ui :commands lsp-ui-mode)
 (use-package lsp-treemacs)
 (use-package markdown-mode)
@@ -155,6 +155,10 @@
   :delight
   :hook (c++-mode . modern-c++-font-lock-mode))
 ;; (use-package rmsbolt)
+(use-package clang-format
+  :init
+  (fset 'c-indent-region 'clang-format-region)
+  (fset 'c-indent-line-or-region 'clang-format-region))
 (use-package magit
   :delight)
 ;; (use-package home-end)
